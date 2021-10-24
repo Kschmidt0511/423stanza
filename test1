@@ -1,0 +1,52 @@
+import a1 
+import nltk 
+import stanza 
+
+pos_tagger = stanza.Pipeline(processors="tokenize,pos",tokenize_pretokenized=True)
+
+# Task 1: 
+
+# First Genre:
+s1 = nltk.corpus.brown.tagged_sents(categories="fiction", tagset="universal")
+s1_list = [] 
+for s in s1: 
+    w_list = []
+    for w in s:
+        w_list.append(w[0])
+    s1_list.append(w_list)
+g1 = a1.get_pos_from_nltk_tagged_sents(s1)
+o1 = pos_tagger(s1_list)
+o1 = a1.get_pos_from_stanza_output(o1)
+print("Finding accuracy of the genre fiction:")
+a1.accuracy(g1, o1)
+print()
+
+# Second Genre:
+s2 = nltk.corpus.brown.tagged_sents(categories="romance", tagset="universal")
+s2_list = []
+for s in s2: 
+    w_list = []
+    for w in s:
+        w_list.append(w[0])
+    s2_list.append(w_list)
+g2 = a1.get_pos_from_nltk_tagged_sents(s2)
+o2 = pos_tagger(s2_list)
+o2 = a1.get_pos_from_stanza_output(o2)
+print("Finding accuracy of the genre romance:")
+a1.accuracy(g2, o2)
+print()
+
+# Third Genre: 
+s3 = nltk.corpus.brown.tagged_sents(categories="government", tagset="universal")
+s3_list = []
+for s in s3: 
+    w_list = []
+    for w in s:
+        w_list.append(w[0])
+    s3_list.append(w_list)
+g3 = a1.get_pos_from_nltk_tagged_sents(s3)
+o3 = pos_tagger(s3_list)
+o3 = a1.get_pos_from_stanza_output(o3)
+print("Finding accuracy of the genre government:")
+a1.accuracy(g3, o3)
+print()

@@ -1,0 +1,67 @@
+import a1 
+import nltk 
+import stanza 
+
+pos_tagger = stanza.Pipeline(processors="tokenize,pos",tokenize_pretokenized=True)
+
+# Task 2: 
+
+# Sentence 1: 
+sent1 = "Bob saw the saw on the table and decided to take it"
+gold1 = ["NOUN","VERB","DET","NOUN","IN","DET","NOUN","CONJ","VERB","TO","VERB","PRP"]
+gold1_list = []
+gold1_list.append(gold1)
+output1 = pos_tagger(sent1)
+output1 = a1.get_pos_from_stanza_output(output1)
+print(gold1_list)
+print(output1)
+print("Finding accuracy of sentence 1:")
+a1.accuracy(gold1_list, output1)
+print()
+
+# Sentence 2:
+sent2 = "Billy chickened out from eating the really spicy chicken wings"
+gold2 = ["NOUN","VERB","PART","FROM","VERB","DET","ADV","ADJ","NOUN", "NOUN"]
+gold2_list = []
+gold2_list.append(gold2)
+output2 = pos_tagger(sent2)
+output2 = a1.get_pos_from_stanza_output(output2)
+print(gold2_list)
+print(output2)
+print("Finding accuracy of sentence 2:")
+a1.accuracy(gold2_list, output2)
+print()
+
+# Sentence 3:
+sent3 = "John has a pet dog that he would alway pet before going to sleep"
+gold3 = ["NOUN","VERB","DET","NOUN","NOUN","DET","PRON","VERB","ADV","VERB","ADV","VERB","DET","NOUN"]
+gold3_list = []
+gold3_list.append(gold3)
+output3 = pos_tagger(sent3)
+output3 = a1.get_pos_from_stanza_output(output3)
+print(gold3_list)
+print(output3)
+print("Finding accuracy of sentence 3:")
+a1.accuracy(gold3_list, output3)
+print()
+
+# Sentence 4: 
+sent4 = "Sam's movie in the box office hit a big hit" 
+gold4 = ["NOUN","NOUN","IN","DET","NOUN","NOUN","VERB","DET","ADJ","NOUN"]
+gold4_list = []
+gold4_list.append(gold4)
+output4 = pos_tagger(sent4)
+output4 = a1.get_pos_from_stanza_output(output4)
+print(gold4_list)
+print(output4)
+print("Finding accuracy of sentence 4:")
+a1.accuracy(gold4_list, output4)
+print()
+
+# Sentence 5: 
+sent5 = "Nate ate chicken noodle soup with spoon"
+gold5 = ["NOUN","VERB","NOUN","NOUN","NOUN","IN","NOUN"]
+gold5_list = []
+gold5_list.append(gold5)
+output5 = pos_tagger(sent5)
+output5 = a1.get_pos_from_stanza_output(output5)
